@@ -18,6 +18,14 @@ const App = () => {
     const clickStart = () => {
 
     }
+
+    // click choice
+    const clickedChoice = () => {
+        // when user clicks a choice, find the question by id
+        // question matches id
+        // set its property to be selected: true 
+
+    }
     // Fetch the trivia questions 
     React.useEffect(() => {
         try {
@@ -49,7 +57,7 @@ const App = () => {
         <div className="App">
             <Intro />
             {allQuestions}
-
+            <button className="btn-dark">Check answers</button>
         </div>
     )
 }
