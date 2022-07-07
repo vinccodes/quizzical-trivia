@@ -1,12 +1,13 @@
 import React from 'react';
+import Button from './Button';
 
-const Intro = ()=>{
+const Intro = (props)=>{
 
     return(
         <div>
             <h1>Quizzical</h1>
             <p>A trivia game of random questions</p>
-            <button>Start quiz</button>
+            <button className="btn-dark" onClick={props.clickedStart}>Start quiz</button>
         </div>
     )
 }

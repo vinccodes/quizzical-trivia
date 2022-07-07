@@ -15,6 +15,10 @@
     margin: 0 auto 0 auto;
 }
 
+.container {
+    max-width: 1100px;
+    margin: 25px auto 25px auto;
+}
 
 .question__container {
     width: 60%;
