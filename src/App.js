@@ -20,13 +20,21 @@ const App = () => {
     }
 
     // click choice
-    const clickedChoice = () => {
-        // when user clicks a choice, find the choice by id
-        // choice matches id
-        // set its property to be selected: true 
+    const clickedChoice = (id) => {
+        console.log('clicked btn ', id)
+        // clone choices array state
+        const updatedChoices = [...choices];
+        /* loop through choices, if button id matches choice id, change 
+            selected to be the inverted value
+        */
+        for (let i = 0; i < updatedChoices.length; i++) {
+            if (updatedChoices[i].id === id) {
+                updatedChoices[i].selected = !updatedChoices[i].selected;
+            }
+        }
 
-        // the view will conditionally change className 
-
+        // update the state 
+        setChoices(updatedChoices)
     }
     // Fetch the trivia questions 
     React.useEffect(() => {
@@ -85,7 +93,8 @@ const App = () => {
             <Question
                 key={index}
                 question={item.question}
-                choices={choices.slice(index, index + 4)}
+                choices={choices.slice(index * 4, index * 4 + 4)}
+                clickedChoice={clickedChoice}
             />
         )
     })
