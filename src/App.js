@@ -19,9 +19,13 @@ const App = () => {
         setGameWon(false)
     }
 
-    // click choice
+
     const clickedChoice = (id) => {
+        // update the choices state when user clicks on a quiz choice
         setChoices(prevChoices => {
+            // return a new copy of choices, 
+            // update the selected property if clicked id matches
+            // set it to be the new state
             const updatedChoices = prevChoices.map(choice => {
                 if (choice.id == id) {
                     const newChoice = {
@@ -77,7 +81,6 @@ const App = () => {
             })
         })
         return answersArr
-
     }
 
 
