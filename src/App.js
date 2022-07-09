@@ -21,20 +21,19 @@ const App = () => {
 
     // click choice
     const clickedChoice = (id) => {
-        console.log('clicked btn ', id)
-        // clone choices array state
-        const updatedChoices = [...choices];
-        /* loop through choices, if button id matches choice id, change 
-            selected to be the inverted value
-        */
-        for (let i = 0; i < updatedChoices.length; i++) {
-            if (updatedChoices[i].id === id) {
-                updatedChoices[i].selected = !updatedChoices[i].selected;
-            }
-        }
-
-        // update the state 
-        setChoices(updatedChoices)
+        setChoices(prevChoices => {
+            const updatedChoices = prevChoices.map(choice => {
+                if (choice.id == id) {
+                    const newChoice = {
+                        ...choice,
+                        selected: !choice.selected
+                    }
+                    return newChoice;
+                }
+                return choice;
+            })
+            return updatedChoices;
+        })
     }
     // Fetch the trivia questions 
     React.useEffect(() => {
