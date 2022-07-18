@@ -122,9 +122,9 @@ const App = () => {
             }
 
         }
-        console.log('checked chocies', checkedChoices)
+        //console.log('checked chocies', checkedChoices)
 
-        //setChoices(updatedChoices);
+        setChoices(checkedChoices);
     }
 
     // map the trivia data into Question JSX objects

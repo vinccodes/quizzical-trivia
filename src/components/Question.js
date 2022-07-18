@@ -1,7 +1,7 @@
 import React from 'react';
 import '../styles.css'
 import Button from './Button'
-const Question = ({question, content, choices, clickedChoice}) =>{
+const Question = ({question, choices, clickedChoice}) =>{
 
     // TODO: randomize choices
     

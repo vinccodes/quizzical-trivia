@@ -4,22 +4,22 @@ const Button = (props)=>{
 
     const btnStyles = props.selected ? "btn btn-selected" : "btn";
 
-
-    let btnCorrect;
-    if (props.correctAnswer === undefined){
-        btnCorrect = 'btn';
+    // apply button styles after checkAnswer() executes
+    let correctAnswer
+    if (props.correctAnswer === null) {
+        correctAnswer = ""
     }
-    else if (props.correctAnswer === true){
-        btnCorrect = 'btn btn-correct';
+    if (props.correctAnswer) {
+        correctAnswer = "btn-correct"
     }
-    else if (props.correctAnswer === false){
-        btnCorrect = 'btn btn-incorrect';
+    if (props.correctAnswer === false) {
+        correctAnswer = "btn-inccorect"
     }
-
+    
 
     return(
         <button 
-            className={`${btnStyles} ${props.correctAnswer == true ? 'btn btn-correct': 'btn btn-inccorect'}`} 
+            className={ `${correctAnswer} ${btnStyles} `} 
             id={props.id} 
             onClick={()=>{ props.clickedChoice(props.id) }}>
             {props.content}
