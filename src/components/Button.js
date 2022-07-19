@@ -2,7 +2,8 @@ import React from 'react';
 
 const Button = (props)=>{
 
-    const btnStyles = props.selected ? "btn btn-selected" : "btn";
+    
+    const btnStyles = props.selected ? "btn btn-selected" : "btn"
 
     // apply button styles after checkAnswer() executes
     let correctAnswer
@@ -13,7 +14,7 @@ const Button = (props)=>{
         correctAnswer = "btn-correct"
     }
     if (props.correctAnswer === false) {
-        correctAnswer = "btn-inccorect"
+        correctAnswer = "btn-incorrect"
     }
     
 

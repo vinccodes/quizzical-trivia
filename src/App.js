@@ -1,14 +1,14 @@
 import React from 'react';
 import Intro from './components/Intro';
 import Question from './components/Question'
-import Answers from './components/Answers';
+import Answer from './components/Answer';
 import Button from './components/Button';
 const App = () => {
 
     const TRIVIA_URL = "https://opentdb.com/api.php?amount=5&category=9&difficulty=easy&type=multiple";
 
     // track game state
-    const [gameWon, setGameWon] = React.useState(false)
+    const [gameWon, setGameWon] = React.useState(null)
     // track game questions
     const [triviaData, setTriviaData] = React.useState([])
     const [choices, setChoices] = React.useState([])
@@ -35,7 +35,7 @@ const App = () => {
     // when start quiz is clicked conditionally render the questions component
     const clickStart = () => {
         setChoices(generateChoices())
-        //setGameWon(false)
+        setGameWon(false)
     }
 
     const clickedChoice = (id) => {
@@ -125,6 +125,7 @@ const App = () => {
         //console.log('checked chocies', checkedChoices)
 
         setChoices(checkedChoices);
+        setGameWon(true)
     }
 
     // map the trivia data into Question JSX objects
@@ -140,6 +141,18 @@ const App = () => {
         )
     })
 
+    const allAnswers = triviaData.map((item, index) => {
+        return (
+            <Answer
+                key={index}
+                question={item.question}
+                choices={choices.slice(index * 4, index * 4 + 4)}
+            />
+        )
+    })
+
+
+
     return (
         <div className="App">
             <Intro clickedStart={clickStart} />
@@ -148,6 +161,10 @@ const App = () => {
                 <button className="btn-dark" onClick={checkAnswers}>Check answers</button>
 
             </div> : ''}
+            {gameWon === true ? <div className="container">
+                {allAnswers}
+            </div> : ''
+            }
 
         </div>
     )
