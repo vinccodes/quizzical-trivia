@@ -16,7 +16,7 @@ const Answer = ({question, choices})=>{
     })
     return(
         <div className="answer__container">
-            <h3 className="answer__title">{question}</h3>
+            <h3 className="question__title">{question}</h3>
             <div className="answer__choice--container">
                 {checkedChoices}
             </div>

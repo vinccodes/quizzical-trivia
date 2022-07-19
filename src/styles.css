@@ -68,3 +68,18 @@
     color: #4D5B9E;
     border-radius: 15px;
 }
+
+
+.answer__container {
+    width: 60%;
+    border-bottom: 1px solid #D6DBF5;
+    padding: 25px;
+    margin-bottom: 25px;
+}
+.answer__choice--container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
